@@ -1,0 +1,90 @@
+<div>
+  <h2 class="text-2xl font-bold text-white mb-6 text-center">Registro</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="mb-5">
+      <label
+        for="name"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Nombre</label
+      >
+      <input
+        type="text"
+        id="name"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Nombre"
+        required
+        formControlName="name"
+      />
+      @if ( this.registerForm.controls['name'].dirty &&
+      this.registerForm.controls['name'].touched &&
+      this.registerForm.controls['name'].invalid ) {
+      <form-input-error [message]="'Nombre No Valido.'" />
+      }
+    </div>
+    <div class="mb-5">
+      <label
+        for="email"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Correo Electrónico</label
+      >
+      <input
+        type="email"
+        id="email"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Correo Electrónico"
+        required
+        formControlName="email"
+      />
+      @if ( this.registerForm.controls['email'].dirty &&
+      this.registerForm.controls['email'].touched &&
+      this.registerForm.controls['email'].invalid ) {
+      <form-input-error [message]="'Email No Valido.'" />
+      }
+    </div>
+
+    <div class="mb-5">
+      <label
+        for="password"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Contraseña</label
+      >
+      <input
+        type="password"
+        id="password"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Contraseña"
+        required
+        formControlName="password"
+      />
+      @if ( this.registerForm.controls['password'].dirty &&
+      this.registerForm.controls['password'].touched &&
+      this.registerForm.controls['password'].invalid ) {
+      <form-input-error [message]="'Contraseña No Valida.'" />
+      }
+    </div>
+
+    <div>
+      <div class="w-full flex justify-center">
+        <button
+          class="btn-primary"
+          type="submit"
+          [disabled]="registerForm.invalid"
+        >
+          <!-- Botón de envío con clase personalizada y deshabilitado si el formulario es inválido -->
+          <i class="fa fa-user-plus"></i>
+          Registrarme
+        </button>
+      </div>
+      <div class="w-full flex justify-center">
+        <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">
+          ¿Ya tienes una cuenta?
+          <a
+            routerLink="/auth/login"
+            class="text-blue-500 hover:underline dark:text-blue-400"
+            >Iniciar sesión</a
+          >
+        </p>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,136 @@
+<div class="min-h-screen bg-gray-900 flex items-start justify-center pt-20 p-4">
+  <!-- Contenedor principal con altura completa, fondo oscuro y centrado -->
+  <div
+    class="w-full max-w-md bg-gray-800 rounded-md shadow-2xl p-8 border border-gray-700"
+  >
+    <!-- Contenedor principal centrado con sombras y bordes redondeados -->
+    <h1
+      class="text-3xl font-bold text-white text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+    >
+      <!-- Título prominente con gradiente -->
+      {{ message() }}
+    </h1>
+    <div class="bg-gray-750 rounded-md shadow-inner p-6 border border-gray-600">
+      <form autocomplete="off" (ngSubmit)="onSubmit()" [formGroup]="taskForm">
+        <!--  -->
+        <div class="mb-5">
+          <label
+            for="title"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Título de la tarea</label
+          >
+          <input
+            type="text"
+            id="title"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Título de la tarea"
+            required
+            formControlName="title"
+            [readOnly]="isReadonly()"
+          />
+          @if ( this.taskForm.controls['title'].dirty &&
+          this.taskForm.controls['title'].touched &&
+          this.taskForm.controls['title'].invalid ) {
+          <form-input-error [message]="'Título No Valido.'" />
+          }
+        </div>
+        <!--  -->
+        <div class="mb-5">
+          <label
+            for="description"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Descripción</label
+          >
+          <textarea
+            id="description"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Descripción"
+            required
+            formControlName="description"
+            [readOnly]="isReadonly()"
+          ></textarea>
+          @if ( this.taskForm.controls['description'].dirty &&
+          this.taskForm.controls['description'].touched &&
+          this.taskForm.controls['description'].invalid ) {
+          <form-input-error [message]="'Descripción No Valida.'" />
+          }
+        </div>
+        <!--  -->
+        <!-- Select para taskStatues -->
+        <div class="mb-5">
+          <label
+            for="statusId"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Estado</label
+          >
+          @if (isReadonly()) {
+          <input
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            type="text"
+            [value]="task().status?.name"
+            readonly
+          />
+          }
+          <!--  -->
+          @else{
+          <select
+            id="statusId"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            required
+            formControlName="statusId"
+            [attr.disabled]="isReadonly() ? '' : null"
+          >
+            <option value="">Selecciona un estado</option>
+            @if (statusesRs.hasValue()) { @for (status of statusesRs.value();
+            track status.id) {
+            <option [value]="status.id">{{ status.name }}</option>
+            } }</select
+          >} @if ( this.taskForm.controls['statusId'].dirty &&
+          this.taskForm.controls['statusId'].touched &&
+          this.taskForm.controls['statusId'].invalid ) {
+          <form-input-error [message]="'Estado No Válido.'" />
+          }
+        </div>
+
+                <!-- Action Buttons -->
+        <div
+          class="bg-gray-750 rounded-md shadow-inner p-2 border border-gray-600"
+        >
+          <div class="flex justify-between">
+            @if(isReadonly()){
+
+            <a
+              class="text-yellow-600 hover:underline mr-3"
+              [routerLink]="[
+                '/tasks/edit/',
+                taskForm.get('id')?.value
+              ]"
+            >
+              <i class="fas fa-edit mr-1"></i> Editar
+            </a>
+            <button
+              class="text-red-600 hover:underline"
+              (click)="deleteTask(taskForm.get('id')?.value)"
+            >
+              <i class="fas fa-trash mr-1"></i> Eliminar
+            </button>
+            }
+            <!--  -->
+            @else {
+
+            <button class="btn-primary" type="submit">
+              <i class="fas fa-trash mr-1"></i>
+              {{ taskForm.get("id")?.value ? "Actualizar" : "Crear" }}
+            </button>
+            <a class="btn-danger" [routerLink]="['/tasks/']">
+              <i class="fas fa-times mr-1"></i> Cancelar
+            </a>
+            }
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+      </form>
+    </div>
+  </div>
+</div>

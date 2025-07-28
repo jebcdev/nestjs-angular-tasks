@@ -1,0 +1,4 @@
+{
+    "dbMcp.provider": "postgresql",
+    "dbMcp.connectionString": "postgresql://postgres:postgres@localhost:5432/nest-angular-tasks"
+}

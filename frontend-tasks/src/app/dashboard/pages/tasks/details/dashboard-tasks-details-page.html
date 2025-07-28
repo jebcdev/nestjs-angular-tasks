@@ -1,0 +1,11 @@
+@if (taskRs.isLoading()) {
+<is-loading />
+} @else if (!taskRs.hasValue()) {
+<is-empty />
+} @else if (taskRs.error()) {
+<is-error />
+} @else if (taskRs.hasValue()) {
+<!-- Data -->
+<dashboard-tasks-form [isReadonly]="true" [task]="taskRs.value()" />
+<!-- Data -->
+}

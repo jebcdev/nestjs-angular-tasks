@@ -1,0 +1,265 @@
+{
+    "database": "nest-angular-tasks",
+    "exported_at": "2025-07-26T00:00:00.000Z",
+    "tables": {
+        "users": [
+            {
+                "id": "ff2bf06e-38f2-48fe-93e8-e828c31f2e45",
+                "name": "Admin",
+                "email": "admin@admin.com",
+                "roles": ["admin"],
+                "createdAt": "2025-07-25T22:18:36.855Z",
+                "updatedAt": "2025-07-25T22:18:36.855Z",
+                "deletedAt": null
+            },
+            {
+                "id": "8e77a240-419c-487a-8940-329a39b80884",
+                "name": "Lilith",
+                "email": "lilith@gmail.com",
+                "roles": ["user"],
+                "createdAt": "2025-07-25T22:18:49.309Z",
+                "updatedAt": "2025-07-25T22:18:49.309Z",
+                "deletedAt": null
+            }
+        ],
+        "tasks_statuses": [
+            {
+                "id": "49159e6e-c98d-46fe-8f31-8f710516261c",
+                "name": "Iniciada",
+                "description": "Tarea que ha sido iniciada y está en progreso",
+                "color": "#FFA500",
+                "createdAt": "2025-07-25T22:38:41.013Z",
+                "updatedAt": "2025-07-25T22:50:08.707Z",
+                "deletedAt": null
+            },
+            {
+                "id": "b2de6e17-022f-4be8-97a9-c2b7a08a0475",
+                "name": "En Progreso",
+                "description": "La tarea está siendo trabajada actualmente y se encuentra en desarrollo",
+                "color": "#F59E0B",
+                "createdAt": "2025-07-26T04:20:55.088Z",
+                "updatedAt": "2025-07-26T04:20:55.088Z",
+                "deletedAt": null
+            },
+            {
+                "id": "d0d52bdc-a773-4edc-a518-7c30950d55ea",
+                "name": "Finalizada",
+                "description": "La tarea ha sido completada exitosamente y está lista para revisión",
+                "color": "#10B981",
+                "createdAt": "2025-07-26T04:20:55.088Z",
+                "updatedAt": "2025-07-26T04:20:55.088Z",
+                "deletedAt": null
+            },
+            {
+                "id": "4b3cd78e-2c31-4e6d-b579-0683539583ad",
+                "name": "Cancelada",
+                "description": "La tarea ha sido cancelada y no será completada",
+                "color": "#EF4444",
+                "createdAt": "2025-07-26T04:20:55.088Z",
+                "updatedAt": "2025-07-26T04:20:55.088Z",
+                "deletedAt": null
+            }
+        ],
+        "tasks": [
+            {
+                "id": "6a6e8951-3aae-4cb9-a345-7c5b50085665",
+                "title": "Integrar sistema de pagos",
+                "description": "Integración con pasarela de pagos cancelada por decisión del cliente",
+                "createdAt": "2025-07-26T04:25:48.490Z",
+                "updatedAt": "2025-07-26T10:40:14.602Z",
+                "deletedAt": null,
+                "user": {
+                    "id": "8e77a240-419c-487a-8940-329a39b80884",
+                    "name": "Lilith",
+                    "email": "lilith@gmail.com"
+                },
+                "status": {
+                    "id": "4b3cd78e-2c31-4e6d-b579-0683539583ad",
+                    "name": "Cancelada",
+                    "color": "#EF4444"
+                }
+            },
+            {
+                "id": "c0dd43cd-556a-4739-9596-40290b806af3",
+                "title": "Implementar autenticación JWT",
+                "description": "Desarrollar el sistema de autenticación y autorización usando JWT tokens",
+                "createdAt": "2025-07-26T04:25:48.490Z",
+                "updatedAt": "2025-07-26T04:25:48.490Z",
+                "deletedAt": null,
+                "user": {
+                    "id": "ff2bf06e-38f2-48fe-93e8-e828c31f2e45",
+                    "name": "Admin",
+                    "email": "admin@admin.com"
+                },
+                "status": {
+                    "id": "b2de6e17-022f-4be8-97a9-c2b7a08a0475",
+                    "name": "En Progreso",
+                    "color": "#F59E0B"
+                }
+            },
+            {
+                "id": "3eba6ca9-b71b-4d4d-acfa-36b004da8fa0",
+                "title": "Documentar API REST",
+                "description": "Crear documentación completa de todos los endpoints de la API",
+                "createdAt": "2025-07-26T04:25:48.490Z",
+                "updatedAt": "2025-07-26T04:25:48.490Z",
+                "deletedAt": null,
+                "user": {
+                    "id": "ff2bf06e-38f2-48fe-93e8-e828c31f2e45",
+                    "name": "Admin",
+                    "email": "admin@admin.com"
+                },
+                "status": {
+                    "id": "d0d52bdc-a773-4edc-a518-7c30950d55ea",
+                    "name": "Finalizada",
+                    "color": "#10B981"
+                }
+            },
+            {
+                "id": "0286af54-bc2b-462b-875f-4fe46ec0325f",
+                "title": "Migrar base de datos legacy",
+                "description": "Migración de datos desde el sistema anterior fue cancelada por cambios en los requisitos",
+                "createdAt": "2025-07-26T04:25:48.490Z",
+                "updatedAt": "2025-07-26T04:25:48.490Z",
+                "deletedAt": null,
+                "user": {
+                    "id": "ff2bf06e-38f2-48fe-93e8-e828c31f2e45",
+                    "name": "Admin",
+                    "email": "admin@admin.com"
+                },
+                "status": {
+                    "id": "4b3cd78e-2c31-4e6d-b579-0683539583ad",
+                    "name": "Cancelada",
+                    "color": "#EF4444"
+                }
+            },
+            {
+                "id": "39aa5d33-5c80-4a50-b13f-bcb5f53def2a",
+                "title": "Diseñar interfaz de usuario",
+                "description": "Crear mockups y prototipos para la interfaz principal de la aplicación",
+                "createdAt": "2025-07-26T04:25:48.490Z",
+                "updatedAt": "2025-07-26T04:25:48.490Z",
+                "deletedAt": null,
+                "user": {
+                    "id": "8e77a240-419c-487a-8940-329a39b80884",
+                    "name": "Lilith",
+                    "email": "lilith@gmail.com"
+                },
+                "status": {
+                    "id": "49159e6e-c98d-46fe-8f31-8f710516261c",
+                    "name": "Iniciada",
+                    "color": "#FFA500"
+                }
+            },
+            {
+                "id": "a288f70d-1d25-4f31-b6d0-9818b5ebd2a8",
+                "title": "Optimizar consultas de base de datos",
+                "description": "Analizar y mejorar el rendimiento de las consultas más pesadas del sistema",
+                "createdAt": "2025-07-26T04:25:48.490Z",
+                "updatedAt": "2025-07-26T04:25:48.490Z",
+                "deletedAt": null,
+                "user": {
+                    "id": "8e77a240-419c-487a-8940-329a39b80884",
+                    "name": "Lilith",
+                    "email": "lilith@gmail.com"
+                },
+                "status": {
+                    "id": "b2de6e17-022f-4be8-97a9-c2b7a08a0475",
+                    "name": "En Progreso",
+                    "color": "#F59E0B"
+                }
+            },
+            {
+                "id": "3cb2830b-6afd-4ace-a8ed-0018c3769391",
+                "title": "Configurar pipeline CI/CD",
+                "description": "Pipeline de integración continua configurado y funcionando correctamente",
+                "createdAt": "2025-07-26T04:25:48.490Z",
+                "updatedAt": "2025-07-26T04:25:48.490Z",
+                "deletedAt": null,
+                "user": {
+                    "id": "8e77a240-419c-487a-8940-329a39b80884",
+                    "name": "Lilith",
+                    "email": "lilith@gmail.com"
+                },
+                "status": {
+                    "id": "d0d52bdc-a773-4edc-a518-7c30950d55ea",
+                    "name": "Finalizada",
+                    "color": "#10B981"
+                }
+            },
+            {
+                "id": "a3b3fd41-d8ed-4cc0-9c69-1d738efea00c",
+                "title": "Configurar entorno de desarrollo",
+                "description": "Instalar y configurar todas las herramientas necesarias para el proyecto",
+                "createdAt": "2025-07-26T04:25:48.490Z",
+                "updatedAt": "2025-07-26T04:25:48.490Z",
+                "deletedAt": null,
+                "user": {
+                    "id": "ff2bf06e-38f2-48fe-93e8-e828c31f2e45",
+                    "name": "Admin",
+                    "email": "admin@admin.com"
+                },
+                "status": {
+                    "id": "49159e6e-c98d-46fe-8f31-8f710516261c",
+                    "name": "Iniciada",
+                    "color": "#FFA500"
+                }
+            },
+            {
+                "id": "dcb282c4-61a4-4a40-89f6-8111486e5853",
+                "title": "Primer Tarea",
+                "description": "Yo estoy haciendo la primer prueba",
+                "createdAt": "2025-07-26T09:38:11.238Z",
+                "updatedAt": "2025-07-26T09:38:11.238Z",
+                "deletedAt": null,
+                "user": {
+                    "id": "8e77a240-419c-487a-8940-329a39b80884",
+                    "name": "Lilith",
+                    "email": "lilith@gmail.com"
+                },
+                "status": {
+                    "id": "49159e6e-c98d-46fe-8f31-8f710516261c",
+                    "name": "Iniciada",
+                    "color": "#FFA500"
+                }
+            },
+            {
+                "id": "66d8d837-212f-4ce3-b1cf-d3bcd7c74cb3",
+                "title": "Primer Tareaaaa",
+                "description": "Yo estoy haciendo la primer prueba",
+                "createdAt": "2025-07-26T09:38:45.404Z",
+                "updatedAt": "2025-07-26T09:38:45.404Z",
+                "deletedAt": null,
+                "user": {
+                    "id": "8e77a240-419c-487a-8940-329a39b80884",
+                    "name": "Lilith",
+                    "email": "lilith@gmail.com"
+                },
+                "status": {
+                    "id": "49159e6e-c98d-46fe-8f31-8f710516261c",
+                    "name": "Iniciada",
+                    "color": "#FFA500"
+                }
+            }
+        ]
+    },
+    "metadata": {
+        "total_users": 2,
+        "total_task_statuses": 4,
+        "total_tasks": 10,
+        "users_by_role": {
+            "admin": 1,
+            "user": 1
+        },
+        "tasks_by_status": {
+            "Iniciada": 4,
+            "En Progreso": 2,
+            "Finalizada": 2,
+            "Cancelada": 2
+        },
+        "tasks_by_user": {
+            "Admin": 4,
+            "Lilith": 6
+        }
+    }
+}

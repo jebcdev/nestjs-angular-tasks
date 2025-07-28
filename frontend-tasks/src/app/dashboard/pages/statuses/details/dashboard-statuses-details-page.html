@@ -1,0 +1,11 @@
+@if (statusRs.isLoading()) {
+<is-loading />
+} @else if (!statusRs.hasValue()) {
+<is-empty />
+} @else if (statusRs.error()) {
+<is-error />
+} @else if (statusRs.hasValue()) {
+<!-- Data -->
+<dashboard-statuses-form [isReadonly]="true" [status]="statusRs.value()" />
+<!-- Data -->
+}

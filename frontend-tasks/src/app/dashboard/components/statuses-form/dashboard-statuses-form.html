@@ -1,0 +1,133 @@
+<div class="min-h-screen bg-gray-900 flex items-start justify-center pt-20 p-4">
+  <!-- Contenedor principal con altura completa, fondo oscuro y centrado -->
+  <div
+    class="w-full max-w-md bg-gray-800 rounded-md shadow-2xl p-8 border border-gray-700"
+  >
+    <!-- Contenedor principal centrado con sombras y bordes redondeados -->
+    <h1
+      class="text-3xl font-bold text-white text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+    >
+      <!-- Título prominente con gradiente -->
+      {{ message() }}
+    </h1>
+    <div class="bg-gray-750 rounded-md shadow-inner p-6 border border-gray-600">
+      <form autocomplete="off" (ngSubmit)="onSubmit()" [formGroup]="statusForm">
+        <div class="mb-5">
+          <label
+            for="name"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Nombre</label
+          >
+          <input
+            type="text"
+            id="name"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Nombre"
+            required
+            formControlName="name"
+            [readOnly]="isReadonly()"
+          />
+          @if ( this.statusForm.controls['name'].dirty &&
+          this.statusForm.controls['name'].touched &&
+          this.statusForm.controls['name'].invalid ) {
+          <form-input-error [message]="'Nombre No Valido.'" />
+          }
+        </div>
+
+        <div class="mb-5">
+          <label
+            for="description"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Descripción</label
+          >
+          <textarea
+            id="description"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Descripción"
+            required
+            formControlName="description"
+            [readOnly]="isReadonly()"
+          ></textarea>
+          @if ( this.statusForm.controls['description'].dirty &&
+          this.statusForm.controls['description'].touched &&
+          this.statusForm.controls['description'].invalid ) {
+          <form-input-error [message]="'Descripción No Valida.'" />
+          }
+        </div>
+
+        <div class="mb-5">
+          <label
+            for="color"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Color</label
+          >
+          <div class="flex items-center space-x-3">
+            @if (!isReadonly()) {
+            <input
+              type="color"
+              id="color"
+              class="w-16 h-10 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 cursor-pointer"
+              required
+              formControlName="color"
+              [readOnly]="isReadonly()"
+            />
+            }
+            <div class="flex-1 flex items-center space-x-2">
+              <div
+                class="w-8 h-8 rounded border border-gray-300 dark:border-gray-600"
+                [style.background-color]="statusForm.get('color')?.value"
+              ></div>
+              <span class="text-sm text-gray-700 dark:text-gray-300 font-mono">
+                {{ statusForm.get("color")?.value }}
+              </span>
+            </div>
+          </div>
+          @if ( this.statusForm.controls['color'].dirty &&
+          this.statusForm.controls['color'].touched &&
+          this.statusForm.controls['color'].invalid ) {
+          <form-input-error [message]="'Color No Válido.'" />
+          }
+        </div>
+
+        <!-- Action Buttons -->
+        <div
+          class="bg-gray-750 rounded-md shadow-inner p-2 border border-gray-600"
+        >
+          <div class="flex justify-between">
+            @if(isReadonly()){
+
+            <a
+              class="text-yellow-600 hover:underline mr-3"
+              [routerLink]="[
+                '/dashboard/statuses/edit/',
+                statusForm.get('id')?.value
+              ]"
+            >
+              <i class="fas fa-edit mr-1"></i> Editar
+            </a>
+            <button
+              class="text-red-600 hover:underline"
+              (click)="deleteStatus(statusForm.get('id')?.value)"
+            >
+              <i class="fas fa-trash mr-1"></i> Eliminar
+            </button>
+            }
+            <!--  -->
+            @else {
+
+            <button class="btn-primary" type="submit">
+              <i class="fas fa-trash mr-1"></i>
+              {{ statusForm.get("id")?.value ? "Actualizar" : "Crear" }}
+            </button>
+            <a class="btn-danger" [routerLink]="['/dashboard/statuses/']">
+              <i class="fas fa-times mr-1"></i> Cancelar
+            </a>
+            }
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+      </form>
+    </div>
+  </div>
+</div>
